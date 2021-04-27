@@ -40,11 +40,16 @@ The following datasets are included in the project.
 **Airport Code Table**: This is a simple table of airport codes and corresponding cities. It comes from [here](https://datahub.io/core/airport-codes#data).
 
 ## Instruction
-This project was complete using PySpark and Pandas, library imported are as following:
+This project was complete using PySpark and Pandas, libraries imported are as following:
 
-import pandas as pd
-import os
-from pyspark import SparkConf, SparkContext
-from pyspark.sql import SparkSession,Window
-from pyspark.sql.types import *
-from pyspark.sql.functions import *
+import pandas as pd     
+import os      
+from pyspark import SparkConf, SparkContext      
+from pyspark.sql import SparkSession,Window       
+from pyspark.sql.types import *      
+from pyspark.sql.functions import *       
+
+End data were loaded as parquet files back into the Udacity cloud storage. The source data were located in the Udacity provided workspace and did not uploaded in the repo.
+
+## Acknowledgment
+Thanks to Udacity for creating this Nanodegree program and the dedecated mentors, reviewers and peer-students for helping me out when I am stuck and providing valuable feedback!
