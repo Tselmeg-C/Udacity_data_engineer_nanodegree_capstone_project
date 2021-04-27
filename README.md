@@ -1,5 +1,5 @@
 # Udacity_data_engineer_nanodegree_capstone_project
-Data Engineering for Analysis on i94Immigration Data from US
+Data Engineering for Analysis on i94Immigration Data from US      
 Key concepts: Data modelling, ETL, PySpark, Data Lake
 
 ## Overview    
@@ -8,7 +8,7 @@ The purpose of the data engineering capstone project is to to combine what I've 
 ## Project Summary
 I worked with four datasets from different sources, designed a Star Schema and prepared them ready for interested analysis on immigration to USA. 
 
-## Instruction
+## Outline
 ### Step 1: Scope the Project and Gather Data
 Since the scope of the project will be highly dependent on the data, these two things happen simultaneously. In this step, I have:
 
@@ -34,11 +34,17 @@ Since the scope of the project will be highly dependent on the data, these two t
 ## Datasets
 The following datasets are included in the project. 
 
-**I94 Immigration Data**: This data comes from the US National Tourism and Trade Office. A data dictionary is included in the workspace. [This](https://travel.trade.gov/research/reports/i94/historical/2016.html) is where the data comes from.     
-**World Temperature Data**: This dataset came from Kaggle. Read more about it [here](https://www.kaggle.com/berkeleyearth/climate-change-earth-surface-temperature-data).            
-**U.S. City Demographic Data**: This data comes from OpenSoft. Read more about it [here](https://public.opendatasoft.com/explore/dataset/us-cities-demographics/export/).   
-
+**I94 Immigration Data**: This data comes from the US National Tourism and Trade Office. A data dictionary is included in the workspace. [This] (https://travel.trade.gov/research/reports/i94/historical/2016.html) is where the data comes from.           
+**World Temperature Data**: This dataset came from Kaggle. Read more about it [here](https://www.kaggle.com/berkeleyearth/climate-change-earth-surface-temperature-data).                  
+**U.S. City Demographic Data**: This data comes from OpenSoft. Read more about it [here](https://public.opendatasoft.com/explore/dataset/us-cities-demographics/export/).       
 **Airport Code Table**: This is a simple table of airport codes and corresponding cities. It comes from [here](https://datahub.io/core/airport-codes#data).
 
+## Instruction
+This project was complete using PySpark and Pandas, library imported are as following:
 
-
+import pandas as pd
+import os
+from pyspark import SparkConf, SparkContext
+from pyspark.sql import SparkSession,Window
+from pyspark.sql.types import *
+from pyspark.sql.functions import *
