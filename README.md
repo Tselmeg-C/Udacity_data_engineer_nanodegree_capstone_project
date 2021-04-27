@@ -39,6 +39,8 @@ The following datasets are included in the project.
 **U.S. City Demographic Data**: This data comes from OpenSoft. Read more about it [here](https://public.opendatasoft.com/explore/dataset/us-cities-demographics/export/).       
 **Airport Code Table**: This is a simple table of airport codes and corresponding cities. It comes from [here](https://datahub.io/core/airport-codes#data).
 
+The immigration data and the global temperate data is in an attached disk of Udacity provided workspace. They were not uploaded in thie repo.
+
 ## Instruction
 This project was complete using PySpark and Pandas, libraries imported are as following:
 
@@ -50,6 +52,14 @@ from pyspark.sql.types import *
 from pyspark.sql.functions import *       
 
 End data were loaded as parquet files back into the Udacity cloud storage. The source data were located in the Udacity provided workspace and did not uploaded in the repo.
+
+## Files description
+* Capstone Project Template-Copy1.ipynb: all the scripting is done in this Jupyter Notebook 
+* airport-codes_csv.csv: Udacity provided airport data  
+* I94_SAS_Labels_Descriptions.SAS: Description file about the immigration data set.
+* immigration_data_sample.csv: Sample of immigration data to provide a glimps of the data structure. The complete dataset was not uploaded in this repo.
+* us-cities-demographics.csv: Udacity provided US demography data.
+
 
 ## Acknowledgment
 Thanks to Udacity for creating this Nanodegree program and the dedecated mentors, reviewers and peer-students for helping me out when I am stuck and providing valuable feedback!
