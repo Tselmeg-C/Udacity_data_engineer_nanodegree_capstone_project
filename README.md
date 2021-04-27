@@ -61,4 +61,4 @@ from pyspark.sql.functions import *
 
 
 ## Acknowledgment
-Thanks to Udacity for creating this Nanodegree program and the dedecated mentors, reviewers and peer-students for helping me out when I am stuck and providing valuable feedback!
+Thanks to Udacity for creating this Nanodegree program and the dedicated mentors, reviewers, and peer students for helping me out when I am stuck and providing valuable feedback!
