@@ -8,36 +8,14 @@ The purpose of the data engineering capstone project is to to combine what I've 
 ## Project Summary
 I worked with four datasets from different sources, designed a Star Schema and prepared them ready for interested analysis on immigration to USA. 
 
-## Outline
-### Step 1: Scope the Project and Gather Data
-Since the scope of the project will be highly dependent on the data, these two things happen simultaneously. In this step, I have:
-
-* Identify and gather the data I will be using for this project. 
-* Explain what end use cases you'd like to prepare the data for (e.g., analytics table, app back-end, source-of-truth database, etc.)
-
+## Project Steps
 ### Step 1: Scope the Project and Gather Data
 
 #### Scope 
 I started from exploring the raw datasets, loading, checking size, schema, columns etc. and find out the connections between tables and do necessary cleanings. Then designed a Star Schema for the datasets which is fit to the analytical purpose of this project and selecting columns and join them to create the fact and dimension tables and save them back to the Udacity provided workspace. Data will be processed mainly with PySpark and the final tables will be stored back to the workspace as parquet files.
 
-### Step 2: Explore and Assess the Data
-* Explore the data to identify data quality issues, like missing values, duplicate data, etc.
-* Document steps necessary to clean the data
-
-### Step 3: Define the Data Model
-* Map out the conceptual data model and explain why I chose that model
-* List the steps necessary to pipeline the data into the chosen data model
-
-### Step 4: Run ETL to Model the Data
-* Create the data pipelines and the data model
-* Include a data dictionary
-* Run data quality checks to ensure the pipeline ran as expected
-  * Integrity constraints on the relational database (e.g., unique key, data type, etc.)
-  * Unit tests for the scripts to ensure they are doing the right thing
-  * Source/count checks to ensure completeness
-
-## Datasets
-The following datasets are the source data in the project. 
+#### Datasets
+The following datasets are gathered. 
 
 **I94 Immigration Data**: This data comes from the US National Tourism and Trade Office. A data dictionary is included in the workspace.[This](https://travel.trade.gov/research/reports/i94/historical/2016.html) is where the data comes from.           
 **World Temperature Data**: This dataset came from Kaggle. Read more about it [here](https://www.kaggle.com/berkeleyearth/climate-change-earth-surface-temperature-data).                  
@@ -45,17 +23,22 @@ The following datasets are the source data in the project.
 **Airport Code Table**: This is a simple table of airport codes and corresponding cities. It comes from [here](https://datahub.io/core/airport-codes#data).
 
 The immigration data and the global temperate data is in an attached disk of Udacity provided workspace. They were not uploaded in thie repo. 
-End data were loaded as parquet files back into the Udacity cloud storage and did not uploaded in the repo.
+End data were loaded as parquet files back into the Udacity cloud storage and did not uploaded in the repo either.
 
+### Step 2: Explore and Assess the Data
+* Explore the data to identify data quality issues, like missing values, duplicate data, etc.
+* Document steps necessary to clean the data
+
+### Step 3: Define the Data Model
 #### 3.1 Conceptual Data Model    
 My data modeling concept is to keep the most relevant information together in one table and reserve the most frequently requested information (from my perspective) in the fact table. In this way a lightweight fact table is produced to retrieve often needed information, in case further information is need for the analysis, joining another table (dimension table) under the Star Schema framework is also not so costly. Ideally, the dimension tables could be further normalized, a Snowflake Schema will possibly more proper considering the some metadata of dimension tables, but it will possibly cause more costly joins among tables and reduce database integrity. After consideration, I decided on a Star Schema, specifically the fact and dimension tables look like the following:       
 
-#### Fact table
+##### Fact table
 
 __fact_immigration_record__:        
 *__cic_id (PK)__, port(FK), arrival_date, arrive_year, arrive_month, departure_date, ariline, flight_num, arrive_city (FK), arrive_state (FK), mode*
 
-#### Dimension Tables   
+##### Dimension Tables   
 1. __dim_immigrant__: *__cic_id (PK)__, age, occupation, gender, birth_year, citizen_country,resident_country*
 
 2. __dim_city__: *city, state, state_code, longitude, latitude, median_age, avg_household_size, total_population,
@@ -76,6 +59,13 @@ The steps necessary to pipeline the data into the chosen data model are:
 
 3. Load: write the final tables back to local/cloud as parquet files (I loaded back the tables directly to the Udacity provided workspace storage, for self implication on cloud self-configuration of cloud infrastructure is necessary)
 
+### Step 4: Run ETL to Model the Data
+* Create the data pipelines and the data model
+* Include a data dictionary
+* Run data quality checks to ensure the pipeline ran as expected
+  * Integrity constraints on the relational database (e.g., unique key, data type, etc.)
+  * Unit tests for the scripts to ensure they are doing the right thing
+  * Source/count checks to ensure completeness
 
 ## Instruction
 This project was complete using PySpark and Pandas, libraries imported are as following:
