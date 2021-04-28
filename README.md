@@ -33,12 +33,12 @@ End data were loaded as parquet files back into the Udacity cloud storage and di
 #### 3.1 Conceptual Data Model    
 My data modeling concept is to keep the most relevant information together in one table and reserve the most frequently requested information (from my perspective) in the fact table. In this way a lightweight fact table is produced to retrieve often needed information, in case further information is need for the analysis, joining another table (dimension table) under the Star Schema framework is also not so costly. Ideally, the dimension tables could be further normalized, a Snowflake Schema will possibly more proper considering the some metadata of dimension tables, but it will possibly cause more costly joins among tables and reduce database integrity. After consideration, I decided on a Star Schema, specifically the fact and dimension tables look like the following:       
 
-##### Fact table
+#### Fact table
 
 __fact_immigration_record__:        
 *__cic_id (PK)__, port(FK), arrival_date, arrive_year, arrive_month, departure_date, ariline, flight_num, arrive_city (FK), arrive_state (FK), mode*
 
-##### Dimension Tables   
+#### Dimension Tables   
 1. __dim_immigrant__: *__cic_id (PK)__, age, occupation, gender, birth_year, citizen_country,resident_country*
 
 2. __dim_city__: *city, state, state_code, longitude, latitude, median_age, avg_household_size, total_population,
@@ -78,7 +78,7 @@ from pyspark.sql.types import *
 from pyspark.sql.functions import *       
 
 ## Files description
-* Capstone Project Template-Copy1.ipynb: all the scripting is done in this Jupyter Notebook 
+* Capstone Project Template-Copy2.ipynb: all the scripting is done in this Jupyter Notebook 
 * airport-codes_csv.csv: Udacity provided airport data  
 * I94_SAS_Labels_Descriptions.SAS: Description file about the immigration data set.
 * immigration_data_sample.csv: Sample of immigration data to provide a glimps of the data structure. The complete dataset was not uploaded in this repo.
