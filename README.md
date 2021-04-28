@@ -67,6 +67,29 @@ The steps necessary to pipeline the data into the chosen data model are:
   * Unit tests for the scripts to ensure they are doing the right thing
   * Source/count checks to ensure completeness
 
+### Step 5: Complete Project Write Up
+* Clearly state the rationale for the choice of tools and technologies for the project.          
+  The source datasets are relativly large (e.g. the immigration data included 3096313 rows), from the efficiency perspective, using PySpark can process the data in parallel and save time. Spark is also easy to deploy on cloud and easy to scale. If the data volume will increase, the complete process can be moved to a cloud hosted Spark cluster, the complete process could also be adopted. A Star Schema is used for data model, because I assumed that we already know the analysis purpose of our data, which is in this project to analysis the immigration data to U.S., in this case, we could create a data model instead of turning to a unstructured data lake architecture. Instead of normalizing the tables or using a Snowflake Schema, I decided for a Star Schema, because of its simplicity for users to write, and databases to process: queries are written with simple inner joins between the facts and a small number of dimensions. Star joins are simpler than possible in snowflake schema.
+  
+* Propose how often the data should be updated and why.   
+     
+  In princip should be updated every time a new immigrant is registered or according to the consumer demand
+  
+* Write a description of how you would approach the problem differently under the following scenarios:
+
+ * The data was increased by 100x.     
+   
+  As storage, another scalable Cloud-based datawarehouse/data lake or on-premise location would be proper. PySpark or other paralyzed frameworks would still be preferred because Apache Spark is linearly scalable, which means I could simply add the number of clusters to increase the performance. Specifically, I would run Spark on multiple clusters using services like EMR. 
+  
+ * The data populates a dashboard that must be updated daily by 7 am every day.    
+   
+ I would move the database on a Cloud platform (AWS for example) and connect with proper BI tools (Dash, Tableau for example) that are connected to the cloud platform and automate the entire data flow using tools like Airflow. A popular implementation here is a combination of Airflow + Spark + Apache Livy in EMR cluster so that Spark commands can be passed through an API interface.
+ 
+ * The database needed to be accessed by 100+ people.  
+    
+ Apache Hive or AWS Redshift will meet the need. 
+ Amazon maintains a software fork of Apache Hive included in Amazon Elastic MapReduce on Amazon Web Services.
+
 ## Instruction
 This project was complete using PySpark and Pandas, libraries imported are as following:
 
