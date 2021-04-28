@@ -38,7 +38,7 @@ My data modeling concept is to keep the most relevant information together in on
 __fact_immigration_record__:        
 *__cic_id (PK)__, port(FK), arrival_date, arrive_year, arrive_month, departure_date, ariline, flight_num, arrive_city (FK), arrive_state (FK), mode*
 
-#### Dimension Tables   
+#### Dimention Tables   
 1. __dim_immigrant__: *__cic_id (PK)__, age, occupation, gender, birth_year, citizen_country,resident_country*
 
 2. __dim_city__: *city, state, state_code, longitude, latitude, median_age, avg_household_size, total_population,
@@ -61,7 +61,7 @@ The steps necessary to pipeline the data into the chosen data model are:
 
 ### Step 4: Run ETL to Model the Data
 * Create the data pipelines and the data model
-* Include a data dictionary
+* Include a data dictionary (seperatly stored as data_dictionary.md)
 * Run data quality checks to ensure the pipeline ran as expected
   * Integrity constraints on the relational database (e.g., unique key, data type, etc.)
   * Unit tests for the scripts to ensure they are doing the right thing
@@ -79,6 +79,7 @@ from pyspark.sql.functions import *
 
 ## Files description
 * Capstone Project Template-Copy2.ipynb: all the scripting is done in this Jupyter Notebook 
+* data_dictionary.md: explanations of tables (columns, datatypes, descriptions)
 * airport-codes_csv.csv: Udacity provided airport data  
 * I94_SAS_Labels_Descriptions.SAS: Description file about the immigration data set.
 * immigration_data_sample.csv: Sample of immigration data to provide a glimps of the data structure. The complete dataset was not uploaded in this repo.
