@@ -1,6 +1,6 @@
 # Udacity_data_engineer_nanodegree_capstone_project
 Data Engineering for Analysis on i94Immigration Data from US      
-Key concepts: Data modelling, ETL, PySpark, Data Lake
+Key concepts: Data modelling, ETL, PySpark
 
 ## Overview    
 The purpose of the data engineering capstone project is to to combine what I've learned throughout the Data Engineering Nanodegree program. I have chosen to complete the project provided by Udacity, which is provided with four datasets. The main dataset include data on immigration to the United States, and supplementary datasets include data on airport codes, U.S. city demographics, and temperature data.
